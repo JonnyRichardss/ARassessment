@@ -783,6 +783,8 @@ MonoBehaviour:
     imagePrefab: {fileID: 1176666359965636535, guid: b22a2a2fb4b4c464e8232f79052b4a58, type: 3}
   - imageGuid: c8c47973-a064-404f-bb6c-97ee70499c02
     imagePrefab: {fileID: 5909234380627762420, guid: 12772f96d57e4cc40b75c029f0cfac62, type: 3}
+  - imageGuid: 15d777c9-46a6-437a-b2db-5de9f3998653
+    imagePrefab: {fileID: 5909234380627762420, guid: 12772f96d57e4cc40b75c029f0cfac62, type: 3}
   m_ImageLibrary: {fileID: 11400000, guid: e99b2cfbf30aa814890d69be3ddcfe9b, type: 2}
 --- !u!1 &1623228688
 GameObject:
