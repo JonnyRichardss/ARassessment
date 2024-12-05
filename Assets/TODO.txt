@@ -1,0 +1,37 @@
+welcome page
+
+prompts to find 4 markers that all give information about the course
+
+they are then "collected" and the info is stored in the app
+
+maybe have a little interactive character?? -- plane tracking is wank so i prob cant use that to place a char in the world
+
+character pops up on top of markers -- otherwise is docked to screen
+
+maybe tutorial - might be hard
+
+
+
+information, search and assistance companion
+I.S.A.A.C.
+
+
+
+TODO:
+scene setup
+collectable badges -- persistent
+character on screen
+character in world -- need provision for horiz and vertical markers
+char does a lil animation to transfer between
+cute lil sounds
+haptic feedback
+tutorial??
+
+
+
+NUTODO:
+Add badges - save to persist between app reload
+character functionality:
+	- talking to player (maybe have a dummy characterController that performs actions for character - control it through other script)
+																																- going to markers (make sure speech bubbles scale correctly)
+																																- animation to transition between camera and world

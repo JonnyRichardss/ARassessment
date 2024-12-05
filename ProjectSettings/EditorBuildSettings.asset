@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/BasicObjects.unity
+  - enabled: 0
+    path: Assets/Scenes/Testing/BasicObjects.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/planes.unity
+    path: Assets/Scenes/Testing/planes.unity
     guid: 8bbaaa109c337a147a9cd8d32eb8320f
+  - enabled: 1
+    path: Assets/Scenes/WelcomeScene.unity
+    guid: 20e3e541220b4434c81a4cf5fe670ee9
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 7bd8f9ab77ce236479af508276d759c4, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 73c1e43aba2ead245805f4076885dda6, type: 2}

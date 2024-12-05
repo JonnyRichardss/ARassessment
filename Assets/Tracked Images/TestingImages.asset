@@ -57,3 +57,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: cardback
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5621441829515187243
+      m_GuidHigh: 8372381423491766204
+    m_SerializedTextureGuid:
+      m_GuidLow: 6716175889688681081
+      m_GuidHigh: 16464198072064693977
+    m_Size: {x: 3, y: 4}
+    m_SpecifySize: 1
+    m_Name: INB
+    m_Texture: {fileID: 0}
