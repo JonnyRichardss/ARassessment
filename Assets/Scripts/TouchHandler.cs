@@ -9,6 +9,7 @@ public class TouchHandler : MonoBehaviour
     public float RequiredSpeed = 2;
     public UIScripting UI;
     public TouchDebug touchDebug;
+    public GameObject DebugTextBox;
 
     // Start is called before the first frame update
     void Start()

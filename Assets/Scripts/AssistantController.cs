@@ -5,11 +5,12 @@ using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.VFX;
 using UnityEditor;
+
 public class AssistantController : MonoBehaviour
 {
     //POTENTIAL TODO - link state to a layer mask
 
-    private enum CRTState
+    public enum CRTState
     {
         OnUi,
         OnWorld
@@ -26,8 +27,6 @@ public class AssistantController : MonoBehaviour
             _targetTransform = value;
             if (value != null)
             {
-                //IEnumerator c = FlyIn();
-                //StartCoroutine(c);
                 smoke.Emit(smokeCount);
                 transform.position = value.position;
                 transform.localScale = value.localScale * imageScaleMultiplier;
@@ -35,8 +34,6 @@ public class AssistantController : MonoBehaviour
             }
             else
             {
-                //IEnumerator c = FlyOut();
-                //StartCoroutine(c);
                 smoke.Emit(smokeCount);
                 transform.position = startPos;
                 transform.localScale = startScale;
@@ -49,19 +46,27 @@ public class AssistantController : MonoBehaviour
     public float sizeOffset = 10.0f;
     public float posLeniency = 2.0f;
     public float flySpeed = 1.0f;
-    private CRTState currentState;
+    public static CRTState currentState {
+        get;
+        private set;
+    }
     //private VisualEffect smoke;
     private ParticleSystem smoke;
     private Vector3 startPos;
     private Vector3 startScale;
     private Camera activeCam;
+    private TextBox textBox;
     private void Awake()
     {
         startPos = transform.position;
         startScale = transform.localScale;
         smoke = GetComponent<ParticleSystem>();
+        textBox = GetComponentInChildren<TextBox>(true);
     }
-
+    private void Start()
+    {
+        Say("Hello World!");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -71,41 +76,12 @@ public class AssistantController : MonoBehaviour
 
 
 
-    }
-    private bool Visible(Vector3 offset)
+    }  
+    public void Say(string text)
     {
-        Vector3 viewPos = activeCam.WorldToViewportPoint(transform.position + offset);
-        return HelperMath.LessThan(viewPos, new Vector3(1, 1, float.MaxValue)) && HelperMath.GreaterThan(viewPos, Vector3.zero);
-    }
-    //flight needs improving
-    //i think setting a target for both directions is needed
-    //and lerp smoothing between them
-    //going to be harder to get a target pos for flying out
-    private IEnumerator FlyOut()
-    {
-        //do fly down
-            //TODO
-        //do fly up
-        while (Visible(transform.up * -1 * sizeOffset))
-        {
-            transform.position += activeCam.transform.up * flySpeed;
-            yield return null;
-        }
-        currentState = CRTState.OnUi;
-        yield break;
-    }
-    private IEnumerator FlyIn()
-    {
-        transform.position = _targetTransform.position + _targetTransform.up * 5;
-        //do fly down
-        while (Vector3.Distance(transform.position,_targetTransform.position) > posLeniency)
-        {
-            transform.position -= _targetTransform.up * flySpeed;
-            yield return null;
-        }
-        currentState = CRTState.OnWorld;
-        yield break;
-    }
+        textBox.gameObject.SetActive(true);
+        textBox.SetText(text);
 
+    }
 }
 
