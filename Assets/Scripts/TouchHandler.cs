@@ -25,7 +25,7 @@ public class TouchHandler : MonoBehaviour
         if (delta.magnitude < RequiredSpeed) return;
         else if (Vector2.Angle(Vector2.left  ,delta) < AngleLeniencyDeg) UI.ShowBadges();
         else if (Vector2.Angle(Vector2.right ,delta) < AngleLeniencyDeg) UI.HideBadges();
-        else if (Vector2.Angle(Vector2.up    ,delta) < AngleLeniencyDeg) UI.ShowWelcome();
+        //else if (Vector2.Angle(Vector2.up    ,delta) < AngleLeniencyDeg) UI.ShowWelcome();
         else if (Vector2.Angle(Vector2.down  ,delta) < AngleLeniencyDeg) UI.HideWelcome();
 
     }

@@ -117,6 +117,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8816278510111924836}
   secondaryCam: {fileID: 0}
+  triangle: {fileID: 0}
+  animationSpeed: 4
+  speedMultiplier: 4
+  triangleTime: 0.5
+  talking: {fileID: 0}
+  beginTalk: {fileID: 0}
+  endTalk: {fileID: 0}
 --- !u!1 &3291575263645510159
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +463,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7723865c809bd74a99d29a19ad7b750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script:
+  - Welcome Back!
+  - Good to see you again!
+  - Hello. I am I.S.A.A.C., your virtual assistant. I am here to help you find information
+    about the computer science course here at Lincoln!
+  - This is an image designed by Dr. Craig Green to cause a voxel-art model of himself
+    to appear in the augmented world! Unfortunately, we seem to have lost the model!
+    Sorry!
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Hint0
+  - Hint1
+  - Hint2
+  - 
   SecondaryCamera: {fileID: 0}
+  startParent: {fileID: 0}
+  teleportSound: {fileID: 0}
+  completion: {fileID: 0}
+  imageName: 
+  CompletionTextTime: 4
+  CompletedText: {fileID: 0}
+  hintButton: {fileID: 0}
   imageScaleMultiplier: 0.5
   smokeCount: 50
   sizeOffset: 10

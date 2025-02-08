@@ -17,6 +17,9 @@ I.S.A.A.C.
 
 
 
+
+IMPORTANT - MAKE ALL FUNCTIONALITY SHORT CIRCUIT IF NOT ON AR SCENE
+
 TODO:
 scene setup
 collectable badges -- persistent
@@ -29,9 +32,12 @@ tutorial??
 
 
 
-NUTODO:
-Add badges - save to persist between app reload
-character functionality:
-	- talking to player (maybe have a dummy characterController that performs actions for character - control it through other script)
-																																- going to markers (make sure speech bubbles scale correctly)
-																																- animation to transition between camera and world
+
+REAL TODO:
+
+
+add sound and haptics
+
+record
+easter egg badges + speech
+add and record easter egg

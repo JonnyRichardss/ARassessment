@@ -9,13 +9,35 @@ using UnityEditor;
 public class AssistantController : MonoBehaviour
 {
     //POTENTIAL TODO - link state to a layer mask
-
+    public string[] script =
+    {
+        "Welcome Back!",
+        "Good to see you again!",
+        "Hello. I am I.S.A.A.C., your virtual assistant. I am here to help you find information about the computer science course here at Lincoln!",
+        "This is an image designed by Dr. Craig Green to cause a voxel-art model of himself to appear in the augmented world! Unfortunately, we seem to have lost the model! Sorry!",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Hint0",
+        "Hint1",
+        "Hint2",
+        ""
+    };
     public enum CRTState
     {
         OnUi,
         OnWorld
     }
     public Camera SecondaryCamera;
+    public Transform startParent;
+    public AudioSource teleportSound;
+    public AudioSource completion;
+    //considering we are now also piping name through it might have been better to use a reference to the script instead of the transform but oh well
+    [HideInInspector]
+    public string imageName;
     private Transform _targetTransform;
     public Transform targetTransform
     {
@@ -28,19 +50,31 @@ public class AssistantController : MonoBehaviour
             if (value != null)
             {
                 smoke.Emit(smokeCount);
+                teleportSound.Play();
+                RDG.Vibration.Vibrate(50, -1, true);
+                transform.SetParent(targetTransform,true);
                 transform.position = value.position;
-                transform.localScale = value.localScale * imageScaleMultiplier;
+                transform.localScale = Vector3.one * imageScaleMultiplier;
+
                 currentState = CRTState.OnWorld;
+                int ScriptID = NameToScriptID(imageName);
+                if(ScriptID >=0) Say(ScriptID);   //-1 is error value - throw instead of silent error for out of range otherwise
             }
             else
             {
                 smoke.Emit(smokeCount);
+                RDG.Vibration.Vibrate(50, -1, true);
+                teleportSound.Play();
+                transform.SetParent(startParent, true);
                 transform.position = startPos;
                 transform.localScale = startScale;
-                currentState= CRTState.OnUi;
+                currentState = CRTState.OnUi;
             }
         } 
     }
+    public float CompletionTextTime = 4.0f;
+    public GameObject CompletedText;
+    public HintButton hintButton;
     public float imageScaleMultiplier = 0.5f;
     public int smokeCount = 50;
     public float sizeOffset = 10.0f;
@@ -62,10 +96,21 @@ public class AssistantController : MonoBehaviour
         startScale = transform.localScale;
         smoke = GetComponent<ParticleSystem>();
         textBox = GetComponentInChildren<TextBox>(true);
+
+
     }
     private void Start()
     {
-        Say("Hello World!");
+        if (!BadgeManager.loadSucceded || BadgeManager.hasReset)
+        {
+            Say(8);
+            textBox.callback = () => {StartCoroutine(hintButton.SpecialLine());};
+          
+        }
+        else
+        {
+            Say(Random.Range(0, 2));
+        }
     }
     // Update is called once per frame
     void Update()
@@ -77,11 +122,56 @@ public class AssistantController : MonoBehaviour
 
 
     }  
+    private IEnumerator CompletionText()
+    {
+        completion.Play();
+        RDG.Vibration.Vibrate(200, -1, true);
+        CompletedText.SetActive(true);
+        yield return new WaitForSeconds(CompletionTextTime);
+        CompletedText.SetActive(false);
+
+    }
+    private IEnumerator SayCompletion()
+    {
+        yield return null;
+        Say(5);
+        StartCoroutine(CompletionText());
+        yield break;
+    }
+    public void ShowCompletion()
+    {
+        textBox.callback = () => {StartCoroutine(SayCompletion()); };
+    }
     public void Say(string text)
     {
         textBox.gameObject.SetActive(true);
         textBox.SetText(text);
 
+    }
+    public void Say(int scriptID)
+    {
+        if (scriptID < script.Length && scriptID >=0)
+        {
+            Say(script[scriptID]);
+        }
+    }
+    public int NameToScriptID(string name)
+    {
+        switch (name)
+        {
+            case "INB":
+                return 2;
+            case "Labs":
+                return 3;
+            case "CSS":
+                return 4;
+            case "EasterEgg":
+                return 6;
+            case "Dr_Green":
+                return 7;
+            default:
+                return -1;
+        }
     }
 }
 

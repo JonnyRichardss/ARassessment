@@ -38,32 +38,42 @@ MonoBehaviour:
     m_Name: Jeff_the_Dog
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
-      m_GuidLow: 4634098896313022835
-      m_GuidHigh: 188106033830784187
-    m_SerializedTextureGuid:
-      m_GuidLow: 16601526377656117249
-      m_GuidHigh: 13049329583460241912
-    m_Size: {x: 0.045, y: 0.06441904}
-    m_SpecifySize: 1
-    m_Name: ace
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4862276426844829641
-      m_GuidHigh: 6018667224898591666
-    m_SerializedTextureGuid:
-      m_GuidLow: 6054017299079635586
-      m_GuidHigh: 5440335374678652459
-    m_Size: {x: 0.0635, y: 0.090617724}
-    m_SpecifySize: 1
-    m_Name: cardback
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
       m_GuidLow: 5621441829515187243
       m_GuidHigh: 8372381423491766204
     m_SerializedTextureGuid:
       m_GuidLow: 6716175889688681081
       m_GuidHigh: 16464198072064693977
-    m_Size: {x: 3, y: 4}
+    m_Size: {x: 0.3, y: 0.4}
     m_SpecifySize: 1
     m_Name: INB
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4939967116792469544
+      m_GuidHigh: 14815670636171244190
+    m_SerializedTextureGuid:
+      m_GuidLow: 307497960320113630
+      m_GuidHigh: 3580144837484926811
+    m_Size: {x: 0.1, y: 0.14806679}
+    m_SpecifySize: 1
+    m_Name: CSS
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4974915451256096742
+      m_GuidHigh: 2601343701491407038
+    m_SerializedTextureGuid:
+      m_GuidLow: 5743471024812921153
+      m_GuidHigh: 9132063159127256923
+    m_Size: {x: 0.1, y: 0.13992964}
+    m_SpecifySize: 1
+    m_Name: Labs
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4986633071241684286
+      m_GuidHigh: 8361694472005901969
+    m_SerializedTextureGuid:
+      m_GuidLow: 17727306624274510954
+      m_GuidHigh: 4862888432391524619
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: EasterEgg
     m_Texture: {fileID: 0}

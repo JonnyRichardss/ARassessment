@@ -22,15 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Space",
-                    "type": "Button",
-                    "id": "4624048f-ee4d-4258-b64f-2e490e0f6099",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -55,17 +46,6 @@
                     "action": "Delta",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a34b348b-dd60-4210-a291-6498bfebd9e7",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBDdebug",
-                    "action": "Space",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
@@ -77,17 +57,6 @@
             "devices": [
                 {
                     "devicePath": "<Touchscreen>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "KBDdebug",
-            "bindingGroup": "KBDdebug",
-            "devices": [
-                {
-                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 }

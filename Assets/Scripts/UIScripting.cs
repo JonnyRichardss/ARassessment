@@ -18,6 +18,9 @@ public static class UIState
 }
 public class UIScripting : MonoBehaviour
 {
+    public AudioSource slideIn;
+    public AudioSource slideOut;
+    public GameObject objectToEnable;
     public RectTransform BadgeUITransform;
     public RectTransform WelcomeUITransform;
     public Vector2 BadgeShow   = new Vector2(-(1080 / 2), 0);
@@ -43,6 +46,8 @@ public class UIScripting : MonoBehaviour
     public void ShowBadges()
     {
         if (UIState.CurrentState != UIState.State.ARScene) return;
+        slideIn.Play();
+        RDG.Vibration.Vibrate(50, -1, true);
         BadgeCoroutine = AnimateWindow(BadgeShow,BadgeUITransform, UIState.State.BadgeMenu);
         StartCoroutine(BadgeCoroutine);
 
@@ -50,20 +55,25 @@ public class UIScripting : MonoBehaviour
     public void HideBadges()
     {
         if (UIState.CurrentState != UIState.State.BadgeMenu) return;
+        slideOut.Play();
+        RDG.Vibration.Vibrate(50, -1, true);
         BadgeCoroutine = AnimateWindow(BadgeHide, BadgeUITransform, UIState.State.ARScene);
         StartCoroutine(BadgeCoroutine);
     }
     public void ShowWelcome()
     {
         if (UIState.CurrentState != UIState.State.ARScene) return;
+        slideIn.Play();
         WelcomeCoroutine = AnimateWindow(WelcomeShow, WelcomeUITransform, UIState.State.WelcomeScreen);
         StartCoroutine(WelcomeCoroutine);
     }
     public void HideWelcome()
     {
-        if (UIState.CurrentState != UIState.State.WelcomeScreen) return; 
+        if (UIState.CurrentState != UIState.State.WelcomeScreen) return;
+        slideOut.Play();
         WelcomeCoroutine = AnimateWindow(WelcomeHide, WelcomeUITransform, UIState.State.ARScene);
         StartCoroutine(WelcomeCoroutine);
+        objectToEnable.SetActive(true);
     }
     private IEnumerator AnimateWindow(Vector2 targetPos,RectTransform transform,UIState.State targetState)
     {

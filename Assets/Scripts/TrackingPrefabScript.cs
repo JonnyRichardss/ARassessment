@@ -17,21 +17,28 @@ public class TrackingPrefabScript : MonoBehaviour
     {
         crt = GameObject.FindGameObjectWithTag("CRT").GetComponent<AssistantController>();
         image = GetComponent<ARTrackedImage>();
+        
         timer = timeout;
+    }
+    private void Start()
+    {
+        BadgeManager.RegisterFound(image.referenceImage.name);
     }
     // Update is called once per frame
     void Update()
     {
-        //this only works for one target at a time LOL
+        //this only works properly if only one target is visible at once
         if (image.trackingState == TrackingState.Tracking)
         {
             timer = timeout;
+            crt.imageName = image.referenceImage.name;
             crt.targetTransform = transform;
             return;
         }
         timer -= Time.deltaTime;
         if (timer < 0 && crt.targetTransform == transform)
         {
+            transform.DetachChildren();
             crt.targetTransform = null;
         }
     }
